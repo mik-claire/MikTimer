@@ -53,9 +53,7 @@ namespace MikTimer.Model
             this.name = name;
             this.end = end;
 
-            this.timer.Interval = TimeSpan.FromSeconds(1);
-            this.timer.Tick += timer_Tick;
-            this.timer.Start();
+            start();
         }
 
         public TimerItem(string name, TimeSpan remain)
@@ -66,6 +64,11 @@ namespace MikTimer.Model
             DateTime end = now + remain;
             this.end = end;
 
+            start();
+        }
+
+        private void start()
+        {
             this.timer.Interval = TimeSpan.FromSeconds(1);
             this.timer.Tick += timer_Tick;
             this.timer.Start();
@@ -89,7 +92,9 @@ namespace MikTimer.Model
             MessageBox.Show(this.name,
                 "It's time now.",
                 MessageBoxButton.OK,
-                MessageBoxImage.Information);
+                MessageBoxImage.Information,
+                MessageBoxResult.OK,
+                MessageBoxOptions.DefaultDesktopOnly);
         }
 
         protected void OnPropertyChanged(string name)
