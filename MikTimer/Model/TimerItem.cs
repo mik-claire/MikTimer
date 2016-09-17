@@ -7,6 +7,7 @@ namespace MikTimer.Model
 {
     public class TimerItem : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
         private DispatcherTimer timer = new DispatcherTimer();
 
         private string name = string.Empty;
@@ -47,18 +48,24 @@ namespace MikTimer.Model
             }
         }
 
-        public void Set(DateTime end)
+        public TimerItem(string name, DateTime end)
         {
+            this.name = name;
+            this.end = end;
 
+            this.timer.Interval = TimeSpan.FromSeconds(1);
+            this.timer.Tick += timer_Tick;
+            this.timer.Start();
         }
 
-        public void Set(TimeSpan remain)
+        public TimerItem(string name, TimeSpan remain)
         {
+            this.name = name;
 
-        }
+            DateTime now = DateTime.Now;
+            DateTime end = now + remain;
+            this.end = end;
 
-        public void Start()
-        {
             this.timer.Interval = TimeSpan.FromSeconds(1);
             this.timer.Tick += timer_Tick;
             this.timer.Start();
@@ -85,7 +92,6 @@ namespace MikTimer.Model
                 MessageBoxImage.Information);
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string name)
         {
             PropertyChangedEventHandler handler = this.PropertyChanged;

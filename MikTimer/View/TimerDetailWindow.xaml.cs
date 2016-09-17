@@ -20,7 +20,7 @@ namespace MikTimer.View
     /// </summary>
     public partial class TimerDetailWindow : Window
     {
-        private TimerItem timerItem = new TimerItem();
+        private TimerItem timerItem;
         public TimerItem TimerItem
         {
             get { return this.timerItem; }
@@ -56,8 +56,7 @@ namespace MikTimer.View
                     return;
                 }
 
-                DateTime now = DateTime.Now;
-                end = now + remain;
+                this.timerItem = new TimerItem(name, remain);
             }
             else
             {
@@ -66,10 +65,9 @@ namespace MikTimer.View
                     MessageBox.Show("Invalid Input: End");
                     return;
                 }
-            }
 
-            this.timerItem.Name = name;
-            this.timerItem.End = end;
+                this.timerItem = new TimerItem(name, end);
+            }
 
             this.DialogResult = true;
         }
@@ -81,6 +79,11 @@ namespace MikTimer.View
 
         private void textBox_KeyDown(object sender, KeyEventArgs e)
         {
+            if (e.Key != Key.Enter)
+            {
+                return;
+            }
+
             button_OK_Click(null, null);
         }
     }

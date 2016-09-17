@@ -41,7 +41,6 @@ namespace MikTimer.View
 
             TimerItem item = w.TimerItem;
             this.timers.Add(item);
-            item.Start();
         }
 
         private void button_Delete_Click(object sender, RoutedEventArgs e)
@@ -52,16 +51,22 @@ namespace MikTimer.View
             }
 
             IList selectedItems = this.listView_Timer.SelectedItems;
-            foreach (Object item in selectedItems)
+            List<TimerItem> marks = new List<TimerItem>();
+            foreach (Object itemObject in selectedItems)
             {
-                TimerItem timerItem = item as TimerItem;
-                if (timerItem == null)
+                TimerItem item = itemObject as TimerItem;
+                if (item == null)
                 {
                     continue;
                 }
 
-                timerItem.Stop();
-                this.timers.Remove(timerItem);
+                item.Stop();
+                marks.Add(item);
+            }
+
+            foreach (TimerItem item in marks)
+            {
+                this.timers.Remove(item);
             }
         }
 
@@ -71,17 +76,5 @@ namespace MikTimer.View
         }
 
         #endregion
-
-        private class Now
-        {
-            public string Time
-            {
-                get
-                {
-                    DateTime now = DateTime.Now;
-                    return now.ToString("HH:mm:ss");
-                }
-            }
-        }
     }
 }
