@@ -16,6 +16,7 @@
             <TextBox x:Name="textBox_Name" TextWrapping="NoWrap"
                      Margin="70,10,0,0" Height="23" Width="120"
                      HorizontalAlignment="Left" VerticalAlignment="Top"
+                     Background="AliceBlue"
                      KeyDown="textBox_KeyDown"/>
 
             <TextBlock Text="End" Margin="10,39,0,0" Foreground="AliceBlue"
@@ -23,6 +24,7 @@
             <TextBox x:Name="textBox_End" TextWrapping="NoWrap"
                      Margin="70,38,0,0" Height="23" Width="120"
                      HorizontalAlignment="Left" VerticalAlignment="Top"
+                     Background="AliceBlue"
                      KeyDown="textBox_KeyDown"/>
 
             <TextBlock Text="Remain" Margin="10,67,0,0" Foreground="AliceBlue"
@@ -30,12 +32,14 @@
             <TextBox x:Name="textBox_RemainHour" Text="0"
                      Margin="70,66,0,0" Height="23" Width="30"
                      HorizontalAlignment="Left" VerticalAlignment="Top"
+                     Background="AliceBlue"
                      KeyDown="textBox_KeyDown"/>
             <TextBlock Text=":" Margin="105,70,0,0"
                        HorizontalAlignment="Left"  VerticalAlignment="Top" />
             <TextBox x:Name="textBox_RemainMinute" TextWrapping="NoWrap" Text="3"
                      Margin="113,66,0,0" Height="23" Width="30"
                      HorizontalAlignment="Left" VerticalAlignment="Top"
+                     Background="AliceBlue"
                      KeyDown="textBox_KeyDown"/>
             <TextBlock Text=":"
                        Margin="148,70,0,0" TextWrapping="NoWrap"
@@ -44,6 +48,7 @@
                      TextWrapping="NoWrap"
                      Margin="156,67,0,0" Height="23" Width="30"
                      HorizontalAlignment="Left" VerticalAlignment="Top"
+                     Background="AliceBlue"
                      KeyDown="textBox_KeyDown"/>
         </Grid>
 

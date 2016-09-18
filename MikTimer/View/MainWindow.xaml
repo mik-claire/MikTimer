@@ -25,6 +25,7 @@
                             <Style TargetType="GridViewColumnHeader">
                                 <Setter Property="IsEnabled" Value="False" />
                                 <Setter Property="Background" Value="DimGray" />
+                                <Setter Property="BorderBrush" Value="Transparent" />
                                 <Style.Triggers>
                                     <Trigger Property="IsEnabled" Value="False">
                                         <Setter Property="TextElement.Foreground" Value="AliceBlue" />
