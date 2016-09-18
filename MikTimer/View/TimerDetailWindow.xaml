@@ -1,7 +1,9 @@
 ﻿<Window x:Class="MikTimer.View.TimerDetailWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="TimerDetail" Height="170" Width="300">
+        Title="TimerDetail" Height="170" Width="300"
+        Background="#3E3E42"
+        >
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
@@ -9,21 +11,21 @@
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
-            <TextBlock Text="Name" Margin="10,11,0,0"
+            <TextBlock Text="Name" Margin="10,11,0,0" Foreground="AliceBlue"
                    HorizontalAlignment="Left"  VerticalAlignment="Top" />
             <TextBox x:Name="textBox_Name" TextWrapping="NoWrap"
                      Margin="70,10,0,0" Height="23" Width="120"
                      HorizontalAlignment="Left" VerticalAlignment="Top"
                      KeyDown="textBox_KeyDown"/>
 
-            <TextBlock Text="End" Margin="10,39,0,0"
+            <TextBlock Text="End" Margin="10,39,0,0" Foreground="AliceBlue"
                        HorizontalAlignment="Left"  VerticalAlignment="Top" />
             <TextBox x:Name="textBox_End" TextWrapping="NoWrap"
                      Margin="70,38,0,0" Height="23" Width="120"
                      HorizontalAlignment="Left" VerticalAlignment="Top"
                      KeyDown="textBox_KeyDown"/>
-            
-            <TextBlock Text="Remain" Margin="10,67,0,0"
+
+            <TextBlock Text="Remain" Margin="10,67,0,0" Foreground="AliceBlue"
                        HorizontalAlignment="Left"  VerticalAlignment="Top" />
             <TextBox x:Name="textBox_RemainHour" Text="0"
                      Margin="70,66,0,0" Height="23" Width="30"
@@ -49,10 +51,12 @@
             <Button x:Name="button_OK" Content="OK"
                     Margin="0,0,90,10" Height="20" Width="75"
                     VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                    Background="AliceBlue"
                     Click="button_OK_Click"/>
             <Button x:Name="button_Cancel" Content="Cancel"
                     Margin="0,0,10,10" Height="20" Width="75"
                     VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                    Background="AliceBlue"
                     Click="button_Cancel_Click"/>
         </Grid>
     </Grid>
