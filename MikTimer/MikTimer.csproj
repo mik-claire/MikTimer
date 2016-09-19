@@ -55,6 +55,9 @@
     </ApplicationDefinition>
     <Compile Include="Model\CurrentTime.cs" />
     <Compile Include="Model\TimerItem.cs" />
+    <Compile Include="View\NotifyWindow.xaml.cs">
+      <DependentUpon>NotifyWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\TimerDetailWindow.xaml.cs">
       <DependentUpon>TimerDetailWindow.xaml</DependentUpon>
     </Compile>
@@ -70,6 +73,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\NotifyWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\TimerDetailWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

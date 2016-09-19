@@ -3,7 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="TimerDetail" Height="170" Width="300"
         Background="#3E3E42"
-        >
+        Loaded="Window_Loaded"
+        KeyDown="Window_KeyDown">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
@@ -17,7 +18,8 @@
                      Margin="70,10,0,0" Height="23" Width="120"
                      HorizontalAlignment="Left" VerticalAlignment="Top"
                      Background="AliceBlue"
-                     KeyDown="textBox_KeyDown"/>
+                     KeyDown="textBox_KeyDown"
+                     GotFocus="textBox_GotFocus"/>
 
             <TextBlock Text="End" Margin="10,39,0,0" Foreground="AliceBlue"
                        HorizontalAlignment="Left"  VerticalAlignment="Top" />

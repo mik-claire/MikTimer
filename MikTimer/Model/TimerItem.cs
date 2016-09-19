@@ -1,14 +1,12 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Windows;
-using System.Windows.Threading;
 
 namespace MikTimer.Model
 {
     public class TimerItem : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        private DispatcherTimer timer = new DispatcherTimer();
 
         private string name = string.Empty;
         public string Name
@@ -52,8 +50,6 @@ namespace MikTimer.Model
         {
             this.name = name;
             this.end = end;
-
-            start();
         }
 
         public TimerItem(string name, TimeSpan remain)
@@ -63,38 +59,6 @@ namespace MikTimer.Model
             DateTime now = DateTime.Now;
             DateTime end = now + remain;
             this.end = end;
-
-            start();
-        }
-
-        private void start()
-        {
-            this.timer.Interval = TimeSpan.FromSeconds(1);
-            this.timer.Tick += timer_Tick;
-            this.timer.Start();
-        }
-
-        public void Stop()
-        {
-            this.timer.Stop();
-        }
-
-        private void timer_Tick(object sender, EventArgs e)
-        {
-            this.Remain = string.Empty;
-
-            if (this.Remain != "00:00:00")
-            {
-                return;
-            }
-
-            this.timer.Stop();
-            MessageBox.Show(this.name,
-                "It's time now.",
-                MessageBoxButton.OK,
-                MessageBoxImage.Information,
-                MessageBoxResult.OK,
-                MessageBoxOptions.DefaultDesktopOnly);
         }
 
         protected void OnPropertyChanged(string name)

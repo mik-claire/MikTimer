@@ -1,6 +1,7 @@
 ﻿using MikTimer.Model;
 using System;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace MikTimer.View
@@ -14,12 +15,28 @@ namespace MikTimer.View
         public TimerItem TimerItem
         {
             get { return this.timerItem; }
-            // set { this.timerItem = value; }
         }
 
         public TimerDetailWindow()
         {
             InitializeComponent();
+        }
+
+        #region Event Handler
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.textBox_Name.Focus();
+        }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key != Key.Escape)
+            {
+                return;
+            }
+
+            this.DialogResult = false;
         }
 
         private void button_OK_Click(object sender, RoutedEventArgs e)
@@ -76,5 +93,18 @@ namespace MikTimer.View
 
             button_OK_Click(null, null);
         }
+
+        private void textBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox target = sender as TextBox;
+            if (target == null)
+            {
+                return;
+            }
+
+            target.SelectAll();
+        }
+
+        #endregion
     }
 }
