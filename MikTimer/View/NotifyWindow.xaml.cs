@@ -20,13 +20,11 @@ namespace MikTimer.View
     /// </summary>
     public partial class NotifyWindow : Window
     {
-        private string name = string.Empty;
-
         public NotifyWindow(string name)
         {
             InitializeComponent();
 
-            this.name = name;
+            this.textBlcok_Name.Text = name;
         }
 
         #region Event Handler
