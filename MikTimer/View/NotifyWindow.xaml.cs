@@ -32,6 +32,7 @@ namespace MikTimer.View
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             SystemSounds.Asterisk.Play();
+            this.button_OK.Focus();
         }
 
         private void button_OK_Click(object sender, RoutedEventArgs e)
