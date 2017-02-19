@@ -102,8 +102,6 @@ namespace MikTimer.View
             this.listView_Timer.SelectedIndex = -1;
         }
 
-        #endregion
-
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Delete)
@@ -132,5 +130,30 @@ namespace MikTimer.View
                 button_Delete_Click(null, null);
             }
         }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (this.timers.Count < 1)
+            {
+                return;
+            }
+
+            string message = 
+@"Timer is moving.
+Exit this application?";
+            MessageBoxResult mr = MessageBox.Show(
+                message,
+                "Confirm",
+                MessageBoxButton.OKCancel,
+                MessageBoxImage.Question);
+            if (mr == MessageBoxResult.OK)
+            {
+                return;
+            }
+
+            e.Cancel = true;
+        }
+
+        #endregion
     }
 }
